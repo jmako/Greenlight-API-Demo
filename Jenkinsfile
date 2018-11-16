@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                bat 'gradle gradlew.bat'
+                bat 'gradle build'
             }
         }
         stage('Test') {
