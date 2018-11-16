@@ -17,8 +17,6 @@ pipeline {
 		    steps {
 				withCredentials([usernamePassword(credentialsId: 'edbf3976-7de8-4d18-9e80-30167c96c94e', passwordVariable: 'vkey', usernameVariable: 'vid')]) {
                     echo 'commands:'
-					echo "${VERACODE_API_ID}"
-					echo "${VERACODE_API_SECRET}"
 					echo "vid: ${vid}"
 					echo "vkey: ${vkey}"
 					echo "${$env.JOB_NAME}"
