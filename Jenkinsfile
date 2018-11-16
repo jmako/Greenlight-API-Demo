@@ -23,9 +23,9 @@ pipeline {
 					echo "${env.JOB_URL}"
 					echo "${env.GIT_COMMIT}"
                 }
-			bat 'curl -V'
-		    //bat 'unzip -V'
-		    //bat 'java -version'
+			// bat 'curl -V'
+		    // bat 'unzip -V'
+		    bat 'java -version'
 		      //bat 'curl -O https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'
 		   //   bat 'unzip gl-scanner-java-LATEST.zip gl-scanner-java.jar'
 		     // bat '''java -jar gl-scanner-java.jar /
