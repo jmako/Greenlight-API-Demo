@@ -19,7 +19,11 @@ pipeline {
                     echo 'commands:'
 					echo '"${VERACODE_API_ID}"'
 					echo '"${VERACODE_API_SECRET}"'
+					echo "1"
 					echo "${env.JOB_NAME}"
+					echo "2"
+					echo '${env.JOB_NAME}'
+					echo "3"
 					echo '$env.JOB_NAME'
 					echo '$env.JOB_URL'
 					echo '$env.GIT_COMMIT'
