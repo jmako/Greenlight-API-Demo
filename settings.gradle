@@ -16,4 +16,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'gl-test-java-gradle-master'
+rootProject.name = 'gl-test-java-gradle'
