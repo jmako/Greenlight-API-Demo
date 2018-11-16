@@ -19,9 +19,9 @@ pipeline {
                     echo 'commands:'
 					echo "vid: ${vid}"
 					echo "vkey: ${vkey}"
-					echo "${$env.JOB_NAME}"
-					echo "${$env.JOB_URL}"
-					echo "${$env.GIT_COMMIT}"
+					echo "${env.JOB_NAME}"
+					echo "${env.JOB_URL}"
+					echo "${env.GIT_COMMIT}"
                 }
 		    //  bat 'curl -V'
 		    //bat 'unzip -V'
