@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Greenlight Example') {
 		    steps {
-				withCredentials([usernamePassword(credentialsId: 'VID', passwordVariable: 'veracode_password', usernameVariable: 'veracode_username')]) {
+				withCredentials([usernamePassword(credentialsId: 'edbf3976-7de8-4d18-9e80-30167c96c94e', passwordVariable: 'vkey', usernameVariable: 'vid')]) {
                     echo 'commands:'
 					echo '"${VERACODE_API_ID}"'
 					echo '"${VERACODE_API_SECRET}"'
@@ -24,6 +24,8 @@ pipeline {
 					echo "2"
 					echo '${env.JOB_NAME}'
 					echo "3"
+					echo "vid: ${vid}"
+					echo "vkey: ${vkey}"
 					echo '$env.JOB_NAME'
 					echo '$env.JOB_URL'
 					echo '$env.GIT_COMMIT'
