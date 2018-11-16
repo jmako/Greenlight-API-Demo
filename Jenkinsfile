@@ -15,7 +15,7 @@ pipeline {
         stage('Greenlight Example') {
 		    steps {
 		    echo 'JDK:'
-		    sh 'java -version'
+		    bat 'java -version'
 		      //sh 'curl -O https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'
 		     // sh 'unzip gl-scanner-java-LATEST.zip gl-scanner-java.jar'
 		      //sh '''java -jar gl-scanner-java.jar /
