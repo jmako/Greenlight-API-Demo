@@ -23,7 +23,7 @@ pipeline {
 					echo "${env.JOB_URL}"
 					echo "${env.GIT_COMMIT}"
                 }
-		    //  bat 'curl -V'
+			bat 'curl -V'
 		    //bat 'unzip -V'
 		    //bat 'java -version'
 		      //bat 'curl -O https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'
