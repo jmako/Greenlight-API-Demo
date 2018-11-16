@@ -29,7 +29,8 @@ pipeline {
 		    // bat 'curl -O https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'
 		    // bat 'unzip gl-scanner-java-LATEST.zip gl-scanner-java.jar'
 		    // bat '''java -jar gl-scanner-java.jar /
-		    bat 'java -jar C:/Users/Administrator/Desktop/gl-scanner-java-LATEST/gl-scanner-java.jar -v'
+		    // bat 'java -jar C:/Users/Administrator/Desktop/gl-scanner-java-LATEST/gl-scanner-java.jar -v'
+		    bat 'java -jar C:/Users/Administrator/Desktop/gl-scanner-java-LATEST/gl-scanner-java.jar -v-api_id "${VERACODE_API_ID}" --api_secret_key "${VERACODE_API_SECRET}" --project_name "${env.JOB_NAME}" --project_url "${env.JOB_URL}" --project_ref "${env.GIT_COMMIT}"'
 		    // bat '''java -jar C:/Users/Administrator/Desktop/gl-scanner-java-LATEST/gl-scanner-java.jar /
 		    //     --api_id "${VERACODE_API_ID}" /
 		    //     --api_secret_key "${VERACODE_API_SECRET}" /
