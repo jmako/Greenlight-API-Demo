@@ -15,12 +15,15 @@ pipeline {
         }
         stage('Greenlight Example') {
 		    steps {
-		      echo 'commands:'
-		      echo '"${VERACODE_API_ID}"'
-		      echo '"${VERACODE_API_SECRET}"'
-		      echo '$env.JOB_NAME'
-		      echo '$env.JOB_URL'
-		      echo '$env.GIT_COMMIT'
+				withCredentials([usernamePassword(credentialsId: 'VID', passwordVariable: 'veracode_password', usernameVariable: 'veracode_username')]) {
+                    echo 'commands:'
+					echo '"${VERACODE_API_ID}"'
+					echo '"${VERACODE_API_SECRET}"'
+					echo "${env.JOB_NAME}"
+					echo '$env.JOB_NAME'
+					echo '$env.JOB_URL'
+					echo '$env.GIT_COMMIT'
+                }
 		    //  bat 'curl -V'
 		    //bat 'unzip -V'
 		    //bat 'java -version'
@@ -40,9 +43,9 @@ pipeline {
             }
         }
     }
-	post {
-	    always {
-	      archiveArtifacts artifacts: 'results.json', fingerprint: true
-	    }
-	}
+	// post {
+	//     always {
+	//       archiveArtifacts artifacts: 'results.json', fingerprint: true
+	//     }
+	// }
 }
