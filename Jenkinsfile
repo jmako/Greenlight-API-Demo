@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building..'
 				// echo %JAVA_HOME%
 				bat "echo %JAVA_HOME%"
-				echo "${JAVA_HOME}""
+				echo "${JAVA_HOME}"
                 bat 'gradle build'
             }
         }
