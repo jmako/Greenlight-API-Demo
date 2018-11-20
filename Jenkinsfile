@@ -18,19 +18,19 @@ pipeline {
         }
         stage('Greenlight Example') {
 		    steps {
-				// bat 'curl -V'
-				// bat 'unzip -V'
-				// bat 'java -version'
-
 				withCredentials([usernamePassword(credentialsId: 'edbf3976-7de8-4d18-9e80-30167c96c94e', passwordVariable: 'vkey', usernameVariable: 'vid')]) {
-                    echo 'commands:'
-					echo "vid: ${vid}"
-					echo "vkey: ${vkey}"
-					echo "${env.JOB_NAME}"
-					echo "${env.JOB_URL}"
-					echo "${env.GIT_COMMIT}"
 
-					// bat 'java -jar C:/Users/Administrator/Desktop/gl-scanner-java-LATEST/gl-scanner-java.jar -v-api_id "${VERACODE_API_ID}" --api_secret_key "${VERACODE_API_SECRET}" --project_name "${env.JOB_NAME}" --project_url "${env.JOB_URL}" --project_ref "${env.GIT_COMMIT}"'
+					// bat 'curl -O https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'
+					// bat 'unzip gl-scanner-java-LATEST.zip gl-scanner-java.jar'
+					// bat """
+					//     java -jar gl-scanner-java.jar /
+					//         --api_id "${VERACODE_API_ID}" /
+					//         --api_secret_key "${VERACODE_API_SECRET}" /
+					//         --project_name "${env.JOB_NAME}" /
+					//         --project_url "${env.JOB_URL}" /
+					//         --project_ref "${env.GIT_COMMIT}"
+					// """
+
 					bat """\
 						java -jar C:/Users/Administrator/Desktop/gl-scanner-java-LATEST/gl-scanner-java.jar \
 							--api_id "${vid}" \
@@ -42,18 +42,6 @@ pipeline {
 							--issue_counts=5:0,4:0,3:0,2:0,1:0,0:0 \
 					"""
                 }
-
-				// bat 'curl -O https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'
-				// bat 'unzip gl-scanner-java-LATEST.zip gl-scanner-java.jar'
-				// bat '''java -jar gl-scanner-java.jar /
-				// bat 'java -jar C:/Users/Administrator/Desktop/gl-scanner-java-LATEST/gl-scanner-java.jar -v'
-				// bat 'java -jar C:/Users/Administrator/Desktop/gl-scanner-java-LATEST/gl-scanner-java.jar -v-api_id "${VERACODE_API_ID}" --api_secret_key "${VERACODE_API_SECRET}" --project_name "${env.JOB_NAME}" --project_url "${env.JOB_URL}" --project_ref "${env.GIT_COMMIT}"'
-				// bat '''java -jar C:/Users/Administrator/Desktop/gl-scanner-java-LATEST/gl-scanner-java.jar /
-				//     --api_id "${VERACODE_API_ID}" /
-				//     --api_secret_key "${VERACODE_API_SECRET}" /
-				//     --project_name "${env.JOB_NAME}" /
-				//     --project_url "${env.JOB_URL}" /
-				//     --project_ref "${env.GIT_COMMIT}"'''
 		    }
 		}
         stage('Deploy') {
@@ -62,9 +50,9 @@ pipeline {
             }
         }
     }
-	// post {
-	//     always {
-	//       archiveArtifacts artifacts: 'results.json', fingerprint: true
-	//     }
-	// }
+	post {
+	    always {
+	      archiveArtifacts artifacts: 'results.json', fingerprint: true
+	    }
+	}
 }
