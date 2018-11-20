@@ -5,9 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-				// echo %JAVA_HOME%
-				bat "echo %JAVA_HOME%"
-				echo "${JAVA_HOME}"
+				// bat "echo %JAVA_HOME%"
+				// echo "${JAVA_HOME}"
                 bat 'gradle build'
             }
         }
@@ -38,9 +37,9 @@ pipeline {
 							--project_name "${env.JOB_NAME}" \
 							--project_url "${env.JOB_URL}" \
 							--project_ref "${env.GIT_COMMIT}" \
-							--issue_details true \
-							--issue_counts=5:0,4:0,3:0,2:0,1:0,0:0 \
-					"""
+						"""
+							// --issue_details true \
+							// --issue_counts=5:0,4:0,3:0,2:0,1:0,0:0 \
                 }
 		    }
 		}
