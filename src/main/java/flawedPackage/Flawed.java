@@ -10,7 +10,7 @@ import java.util.Random;
 @SuppressWarnings("unused")
 public class Flawed {
 
-	// foo bar baz
+	// foo bar
 
 	public static final String PASSWORD = "pass";
 	static byte[] dec;
