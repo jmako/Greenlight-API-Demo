@@ -38,6 +38,7 @@ pipeline {
 							--project_name "${env.JOB_NAME}" \
 							--project_url "${env.JOB_URL}" \
 							--project_ref "${env.GIT_COMMIT}" \
+							--issue_details true \
 					"""
                 }
 
