@@ -19,7 +19,11 @@ pipeline {
 		    steps {
 				withCredentials([usernamePassword(credentialsId: 'edbf3976-7de8-4d18-9e80-30167c96c94e', passwordVariable: 'vkey', usernameVariable: 'vid')]) {
 
-					curl -V
+					// don't work:
+					// bat "curl -V"  == no command
+					// curl -V  == error in file
+
+					iex ((New-Object System.Net.WebClient).DownloadString('https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'))
 
 					// bat 'curl -O https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'
 					// bat 'unzip gl-scanner-java-LATEST.zip gl-scanner-java.jar'
