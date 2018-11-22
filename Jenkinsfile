@@ -5,9 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-				// bat "echo %JAVA_HOME%"
-				// echo "${JAVA_HOME}"
-                // bat 'gradle build'
+                bat 'gradle build'
             }
         }
         stage('Test') {
@@ -18,17 +16,6 @@ pipeline {
         stage('Greenlight Example') {
 		    steps {
 				withCredentials([usernamePassword(credentialsId: 'edbf3976-7de8-4d18-9e80-30167c96c94e', passwordVariable: 'vkey', usernameVariable: 'vid')]) {
-
-					// don't work:
-					// bat "curl -V"  == no command
-					// curl -V  == error in file
-
-					// powershell "((New-Object System.Net.WebClient).DownloadString('https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'))"
-					// powershell "(New-Object Net.WebClient).DownloadFile('https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip','C:/Program Files (x86)/.jenkins/jobs/Greenlight_API_pipeline/workspace/gl-scanner-java-LATEST.zip');(new-object -com shell.application).namespace('C:/Program Files (x86)/.jenkins/jobs/Greenlight_API_pipeline/').CopyHere((new-object -com shell.application).namespace('C:/Program Files (x86)/.jenkins/jobs/Greenlight_API_pipeline/gl-scanner-java-LATEST.zip').Items(),16)"
-					// powershell '''(New-Object Net.WebClient).DownloadFile(\'https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip\',\'C:/Program Files (x86)/.jenkins/jobs/Greenlight_API_pipeline/workspace/gl-scanner-java-LATEST.zip\');
-					// 	Add-Type -AssemblyName System.IO.Compression.FileSystem
-					// 	[System.IO.Compression.ZipFile]::ExtractToDirectory(\'C:/Program Files (x86)/.jenkins/jobs/Greenlight_API_pipeline/workspace/gl-scanner-java-LATEST.zip\', \'C:/Program Files (x86)/.jenkins/jobs/Greenlight_API_pipeline/workspace/\')
-					// '''
 
 					powershell '''
 						$dir = \'C:/Program Files (x86)/.jenkins/jobs/Greenlight_API_pipeline/workspace/\'
@@ -58,20 +45,6 @@ pipeline {
 
 						Unzip -zipfile "$zipupload" -outdir "$dir"
 					'''
-
-
-
-
-					// bat 'curl -O https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'
-					// bat 'unzip gl-scanner-java-LATEST.zip gl-scanner-java.jar'
-					// bat """
-					//     java -jar gl-scanner-java.jar /
-					//         --api_id "${VERACODE_API_ID}" /
-					//         --api_secret_key "${VERACODE_API_SECRET}" /
-					//         --project_name "${env.JOB_NAME}" /
-					//         --project_url "${env.JOB_URL}" /
-					//         --project_ref "${env.GIT_COMMIT}"
-					// """
 
 					bat """\
 						java -jar ./gl-scanner-java.jar \
