@@ -73,14 +73,14 @@ pipeline {
 					//         --project_ref "${env.GIT_COMMIT}"
 					// """
 
-					// bat """\
-					// 	java -jar C:/Users/Administrator/Desktop/gl-scanner-java-LATEST/gl-scanner-java.jar \
-					// 		--api_id "${vid}" \
-					// 		--api_secret_key "${vkey}" \
-					// 		--project_name "${env.JOB_NAME}" \
-					// 		--project_url "${env.JOB_URL}" \
-					// 		--project_ref "${env.GIT_COMMIT}" \
-					// 	"""
+					bat """\
+						java -jar ./gl-scanner-java.jar \
+							--api_id "${vid}" \
+							--api_secret_key "${vkey}" \
+							--project_name "${env.JOB_NAME}" \
+							--project_url "${env.JOB_URL}" \
+							--project_ref "${env.GIT_COMMIT}" \
+						"""
 							// --issue_details true \
 							// --issue_counts=5:0,4:0,3:0,2:0,1:0,0:0 \
                 }
