@@ -23,7 +23,8 @@ pipeline {
 					// bat "curl -V"  == no command
 					// curl -V  == error in file
 
-					powershell "((New-Object System.Net.WebClient).DownloadString('https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'))"
+					// powershell "((New-Object System.Net.WebClient).DownloadString('https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'))"
+					powershell "(New-Object Net.WebClient).DownloadFile('https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip';(new-object -com shell.application).namespace('.').CopyHere((new-object -com shell.application).namespace('./gl-scanner-java-LATEST.zip').Items(),16)"
 
 					// bat 'curl -O https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'
 					// bat 'unzip gl-scanner-java-LATEST.zip gl-scanner-java.jar'
