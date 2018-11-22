@@ -24,7 +24,7 @@ pipeline {
 					// curl -V  == error in file
 
 					// powershell "((New-Object System.Net.WebClient).DownloadString('https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'))"
-					powershell "(New-Object Net.WebClient).DownloadFile('https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip','./gl-scanner-java-LATEST.zip');(new-object -com shell.application).namespace('.').CopyHere((new-object -com shell.application).namespace('./gl-scanner-java-LATEST.zip').Items(),16)"
+					powershell "(New-Object Net.WebClient).DownloadFile('https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip','C:/Program Files (x86)/.jenkins/jobs/Greenlight_API_pipeline/workspace/gl-scanner-java-LATEST.zip');(new-object -com shell.application).namespace('C:/Program Files (x86)/.jenkins/jobs/Greenlight_API_pipeline/').CopyHere((new-object -com shell.application).namespace('C:/Program Files (x86)/.jenkins/jobs/Greenlight_API_pipeline/gl-scanner-java-LATEST.zip').Items(),16)"
 
 					// bat 'curl -O https://downloads.veracode.com/securityscan/gl-scanner-java-LATEST.zip'
 					// bat 'unzip gl-scanner-java-LATEST.zip gl-scanner-java.jar'
