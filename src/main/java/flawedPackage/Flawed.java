@@ -11,6 +11,7 @@ import java.util.Random;
 public class Flawed {
 
 	// foo
+	// foo bar baz
 
 	public static final String PASSWORD = "pass";
 	static byte[] dec;
