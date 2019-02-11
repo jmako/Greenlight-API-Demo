@@ -13,7 +13,7 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        stage('Greenlight Example') {
+        stage('Greenlight Scan') {
 		    steps {
 				withCredentials([usernamePassword(credentialsId: '5fbcb5fd-8852-409c-aa7b-5111189bf6f3', passwordVariable: 'vkey', usernameVariable: 'vid')]) {
 
@@ -53,7 +53,6 @@ pipeline {
 							--project_name "${env.JOB_NAME}" \
 							--project_url "${env.JOB_URL}" \
 							--project_ref "${env.GIT_COMMIT}" \
-							--issue_counts=5:0,4:0,3:0,2:0,1:0,0:0 \
 						"""
 							// --issue_details true \
 							// --issue_counts=5:0,4:0,3:0,2:0,1:0,0:0 \
