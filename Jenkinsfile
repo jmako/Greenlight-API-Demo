@@ -53,9 +53,9 @@ pipeline {
 							--project_name "${env.JOB_NAME}" \
 							--project_url "${env.JOB_URL}" \
 							--project_ref "${env.GIT_COMMIT}" \
-						"""
 							// --issue_details true \
-							 --issue_counts=5:1,4:1,3:5,2:5,1:5,0:5 \
+							--issue_counts=5:1,4:1,3:5,2:5,1:5,0:5 \
+					"""
                 }
 		    }
 		}
