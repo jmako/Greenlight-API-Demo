@@ -12,7 +12,7 @@ public class Flawed {
 
 // some change
 
-	public static final String PASSWORD = "Rajeev";
+	public static final String PASSWORD = "Rajeevs";
 	static byte[] dec;
 
 	public static void main(String[] args) throws Exception {
