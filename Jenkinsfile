@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Greenlight Scan') {
 		    steps {
-				withCredentials([usernamePassword(credentialsId: '5fbcb5fd-8852-409c-aa7b-5111189bf6f3', passwordVariable: 'vkey', usernameVariable: 'vid')]) {
+				withCredentials([usernamePassword(credentialsId: '30925d33-3b62-4d2c-85ae-45de4e9df498', passwordVariable: 'vkey', usernameVariable: 'vid')]) {
 
 					powershell '''
 						$dir = (Get-Item -Path ".\\").FullName
